@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <header>
+      <div class="header__date"    id="header-date"></div>
+      <div class="header__clock"   id="header-clock">--:--:--</div>
+      <div class="header__greeting" id="header-greeting"></div>
+      <div class="header__controls">
+        <button id="name-edit-btn" class="btn-icon" title="Change your name" aria-label="Change name">✏️</button>
+        <button id="theme-toggle"  class="btn-icon" title="Toggle light/dark mode" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- Name modal -->
+    <div id="name-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal">
+        <h2 id="modal-title">Welcome! What's your name?</h2>
+        <p class="modal__hint">This will personalise your greeting.</p>
+        <input type="text" id="name-input" maxlength="50" placeholder="Enter your name…" aria-label="Your name" />
+        <button id="name-save-btn" class="btn-primary">Save</button>
+      </div>
+    </div>
+
+    <main>
+
+      <!-- ── Focus Timer ── -->
+      <section id="timer-card" class="card">
+        <h2>Focus Timer</h2>
+        <div class="timer__display" id="timer-display">25:00</div>
+        <div class="timer__controls">
+          <button id="timer-start">Start</button>
+          <button id="timer-stop">Stop</button>
+          <button id="timer-reset">Reset</button>
+        </div>
+        <p class="timer__message" id="timer-message" hidden></p>
+      </section>
+
+      <!-- ── To-Do List ── -->
+      <section id="todo-card" class="card">
+        <h2>To-Do List</h2>
+        <div class="todo__input-row">
+          <input
+            type="text"
+            id="todo-input"
+            maxlength="500"
+            placeholder="What do you need to do?"
+            aria-label="New task"
+          />
+          <button id="todo-add">Add</button>
+        </div>
+        <p class="todo__error" id="todo-error" hidden></p>
+        <ul id="todo-list" aria-label="Task list"></ul>
+      </section>
+
+      <!-- ── Quick Links ── -->
+      <section id="links-card" class="card">
+        <h2>Quick Links</h2>
+
+        <p class="links__section-label">Bookmarks</p>
+        <div id="links-preset"></div>
+
+        <p class="links__section-label">My Links</p>
+        <div id="links-user"></div>
+
+        <p class="links__error" id="links-error" hidden></p>
+
+        <div class="links__add-form">
+          <input
+            type="text"
+            id="link-label"
+            maxlength="50"
+            placeholder="Label"
+            aria-label="Link label"
+          />
+          <input
+            type="text"
+            id="link-url"
+            maxlength="2048"
+            placeholder="https://…"
+            aria-label="Link URL"
+          />
+          <button id="link-add">Add Link</button>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
